@@ -1,0 +1,45 @@
+<div class="row offset2 control-group span6">
+	<div class="progress progress-striped progress-success">
+	<div class="bar"   style="width: 60%;"></div>
+	</div>
+</div>
+<div class="row offset2 control-group span6 well">
+	<h1>Task Details</h1>
+</div>
+<div class="row offset2  control-group span6">
+	<strong>Task Type: </strong><span><%= @task_type.name %></span>
+</div>
+<div class="row offset2 span6">
+	<%= form_tag multi_task_form_path, :method=>'post', :id=>'task-details-form' do %>	
+
+		<%= label_tag "Title" %>
+		<%= text_field_tag "task_title" %>
+
+		<!-- <span>Due at: </span><span><%= datetime_select "task", "due_at", {},{:class => "time" ,:style=>"width:auto"} %></span> -->
+		<%= label_tag "Due at"%>
+		<%= text_field_tag "due_at" %>
+
+	<%= hidden_field_tag 'task_type_id', @task_type.id %>
+	<% @fields.each do |field| %>
+		<%= label_tag field.name %>
+		<% case field.kind %>
+		<% when "string"%>
+			<%= text_field_tag field.name %>
+		<% when "number"%>
+			<%= number_field_tag field.name %>		
+		<% when "text"%>
+			<%= text_area_tag field.name %>		
+		<% when "boolean"%>
+			<%= check_box_tag field.name %>		
+		<% when "options"%>
+			<!-- <%= check_box_tag field.name %> -->		
+			<%= select_tag field.name, options_for_select(field.options.split("|")).html_safe %> 	
+		<% else %>
+			<%= text_field_tag field.name %>
+		<% end %>
+	<% end %>
+</div>
+<div class="row offset2 control-group span6 ">
+<%= submit_tag "Add", :class=>'btn btn-primary'%>
+<% end %>
+</div>

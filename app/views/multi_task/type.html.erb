@@ -1,0 +1,25 @@
+<div class="row  offset2  span6 ">
+	<div class="progress  progress-striped progress-success">
+	  <div class="bar"
+	       style="width: 30%;"></div>
+	</div>
+</div>
+<div class="row well offset2 span6">
+	<h1>Select the type of the task</h1>
+</div>
+<%= form_tag multi_task_form_path, :method=>'post', :id=>'task-type-form' do %>
+
+<div class="row control-group  offset2 span6">
+	<%= select_tag :task_type, options_from_collection_for_select(@types, "id", "name").html_safe %> 
+</div>
+<div class="row  offset2  span6">
+	<%= submit_tag "Next", :class=>'btn btn-primary'%>
+	<% end %>
+</div>
+
+
+
+
+
+
+

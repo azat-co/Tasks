@@ -1,0 +1,23 @@
+<% title "New Task" %>
+
+<%= form_for @task do |f| %>
+  <% if @task.errors.any? %>  
+    <div id="errorExplanation">
+      <% @task.errors.full_messages.each do |msg| %>  
+        <p class="error"><%= msg %></p>  
+      <% end %>  
+    </div>
+  <% end %>
+  
+  <div class="control-group">
+    <%= f.label :title %> <%= f.text_field :title %>
+  </div>
+  <div class="control-group">
+    <%= f.label :due_at %> <%= f.datetime_select :due_at, {}, :class => "time" %>
+  </div>
+  <div class="form-actions">
+    <%= f.submit "Create Task", :class => "btn btn-primary" %>
+    <%= link_to "Cancel", root_path, :class => "btn" %>
+  </div>
+  
+<% end %>
