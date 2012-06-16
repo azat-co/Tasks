@@ -14,10 +14,7 @@ class MultiTaskController < ApplicationController
       task_type_id=params["task_type_id"] #from hidden field
       puts "****************"+params["due_at"]
       puts "****************"+Date.strptime(params["due_at"], "%m/%d/%Y %T").to_date.to_s,
-      task=Task.create ({        
-        :task_type_id=>task_type_id,        
-        :title=>params["task_title"],        
-        :due_at=>params["due_at"]      })
+      task=Task.create ({:task_type_id=>task_type_id, :title=>params["task_title"], :due_at=>params["due_at"]      })
       # puts "**************"+strtotime(params["due_at"])
       # puts "****************"+params["task"].to_s
       # puts "****************"+params["due_at"].to_s
