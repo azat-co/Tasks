@@ -11,8 +11,8 @@
 $(document).ready(function () {
 	if ($("input[name='due_at']")) {
 		$("input[name='due_at']").datetimepicker({
-			ampm: false,
-			timeFormat:" hh:mm:ss",
+			ampm: true,
+			timeFormat:" hh:mm:ss TT",
 			separator: " "
 		});
 	}
