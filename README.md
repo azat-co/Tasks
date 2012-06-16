@@ -1,4 +1,4 @@
-TaskRabbitClone
+Tasks Application
 ===============
 
 Create various tasks
