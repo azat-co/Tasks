@@ -15,7 +15,7 @@ class MultiTaskController < ApplicationController
       puts "****************"+params["due_at"]
       #DateTime.strptime("06/29/2012 10:00:00", "%m/%d/%Y %H:%M:%S").to_date
       puts "****************"+DateTime.strptime(params["due_at"], "%m/%d/%Y %H:%M:%S").to_date.to_s,
-      task=Task.create({:task_type_id=>task_type_id, :title=>params["task_title"], :due_at=>DateTime.strptime(params["due_at"], "%m/%d/%Y %H:%M:%S").to_date    })
+      task=Task.create({:task_type_id=>task_type_id, :title=>params["task_title"], :due_at=>DateTime.strptime(params["due_at"], "%m/%d/%Y %H:%M:%S")    })
       # puts "**************"+strtotime(params["due_at"])
       # puts "****************"+params["task"].to_s
       # puts "****************"+params["due_at"].to_s
